@@ -1,0 +1,36 @@
+# Aqui estão alguns códigos em Python para mineração de dados Apriori que encontrei em um repositório do GitHub¹:
+
+```python
+import pandas as pd
+from mlxtend.frequent_patterns import apriori
+from mlxtend.frequent_patterns import association_rules
+
+df = pd.read_csv('https://raw.githubusercontent.com/DjalmaHenry/data-mining-apriori/main/datasets/transacoes.txt', header=None)
+df.columns = ['items']
+df['items'] = df['items'].apply(lambda x: x.split(','))
+frequent_itemsets = apriori(df['items'].tolist(), min_support=0.01, max_len=3, use_colnames=True)
+rules = association_rules(frequent_itemsets, metric="lift", min_threshold=1)
+rules.head()
+```
+
+# Exemplo de código que encontrei em um artigo
+
+```python
+from mlxtend.preprocessing import TransactionEncoder
+from mlxtend.frequent_patterns import apriori
+
+dataset = [['Leite', 'Cebola', 'Batata', 'Feijão', 'Ovo', 'Iogurte'],
+           ['Arroz', 'Cebola', 'Batata', 'Feijão', 'Ovo', 'Iogurte'],
+           ['Leite', 'Maçã', 'Feijão', 'Ovo'],
+           ['Leite', 'Milho', 'Feijão', 'Iogurte'],
+           ['Milho', 'Cebola', 'Batata', 'Ovo']]
+
+te = TransactionEncoder()
+te_ary = te.fit(dataset).transform(dataset)
+df = pd.DataFrame(te_ary, columns=te.columns_)
+frequent_itemsets = apriori(df, min_support=0.6, use_colnames=True)
+frequent_itemsets
+`
+(1) GitHub - DjalmaHenry/data-mining-apriori: Mineração de dados usando .... https://github.com/DjalmaHenry/data-mining-apriori.
+(2) A priori: Explicação detalhada sobre mineração de regras de associação .... https://ichi.pro/pt/a-priori-explicacao-detalhada-sobre-mineracao-de-regras-de-associacao-e-implementacao-de-python-45128340201414.
+(3) Mineração de Regras de Associação com Python, Apriori e SQL. https://www.udemy.com/course/mineracao-de-regras-de-associacao-com-python-apriori-e-sql/.
