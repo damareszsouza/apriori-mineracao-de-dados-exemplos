@@ -1,5 +1,5 @@
 # apriori-mineracao-de-dados-exemplos
-Códigos de estudos ciência de dados - assunto mineração de dados método apriori
+#  Códigos de estudos ciência de dados - assunto mineração de dados método apriori
 
 {
  "cells": [
@@ -22,6 +22,8 @@ Códigos de estudos ciência de dados - assunto mineração de dados método apr
    "metadata": {},
    "outputs": [
     {
+
+    
      "data": {
       "text/html": [
        "<div>\n",
